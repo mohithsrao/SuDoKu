@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSR.Components.Grid", "MSR.Components.Grid\MSR.Components.Grid.csproj", "{DA162BC9-9DBF-4056-AD63-DB4A2F940F76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSR.Components.GridTests", "MSR.Components.GridTests\MSR.Components.GridTests.csproj", "{6B231B20-030E-4AAB-B2F7-A7732940D05C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DA162BC9-9DBF-4056-AD63-DB4A2F940F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA162BC9-9DBF-4056-AD63-DB4A2F940F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA162BC9-9DBF-4056-AD63-DB4A2F940F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B231B20-030E-4AAB-B2F7-A7732940D05C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B231B20-030E-4AAB-B2F7-A7732940D05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B231B20-030E-4AAB-B2F7-A7732940D05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B231B20-030E-4AAB-B2F7-A7732940D05C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

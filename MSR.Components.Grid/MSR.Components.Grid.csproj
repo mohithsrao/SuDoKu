@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell.cs" />
+    <Compile Include="Cell\EmptyCell.cs" />
+    <Compile Include="Grid\AbstractGrid.cs" />
+    <Compile Include="Cell\AbstractCell.cs" />
+    <Compile Include="Grid\Grid.cs" />
+    <Compile Include="Grid\SuDoKuGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
