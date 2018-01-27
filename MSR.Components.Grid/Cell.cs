@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MSR.Components.Grid
 {
-    public class Class1
+    public abstract class Cell
     {
+        public int X_Cord { get; set; }
+        public int Y_Cord { get; set; }
     }
 }
