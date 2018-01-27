@@ -1,36 +1,107 @@
 ﻿using System;
+using MSR.Components.Grid.Cell;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MSR.Components.Grid.Cell;
 
 namespace MSR.Components.Grid.Grid
 {
-    public class Grid : AbstractGrid
+    public class Grid : IGrid
     {
-        public Grid(int dimention) : base(dimention)
+        #region Private Variables
+
+        #endregion
+
+        #region Public Properties
+
+        public int Size
         {
-            Cells = CreateGrid(dimention);
+            get;
+
+            set;
+        }
+        public ICell[,] Cells
+        {
+            get;
+
+            set;
         }
 
-        private AbstractCell[,] CreateGrid(int dimention)
+        public IEnumerable<ICell[]> Rows
         {
-            var cells = new EmptyCell[dimention, dimention];
+            get; set;
+        }
+
+        public IEnumerable<ICell[]> Columns
+        {
+            get; set;
+        }
+
+        #endregion
+
+        public Grid(int dimention)
+        {
+            Size = dimention;
+            Cells = CreateGrid(dimention);
+            Rows = Cells
+                .Cast<ICell>()
+                .GroupBy(x => x.X_Cord)
+                .Select(x => x.ToArray());
+            Columns = Cells
+                .Cast<ICell>()
+                .GroupBy(x => x.Y_Cord)
+                .Select(x => x.ToArray());
+        }
+
+        #region Public Methods
+
+        public ICell this[int index]
+        {
+            get
+            {
+                var x = GetXCord(index);
+                var y = GetYCord(index);
+                return Cells[x, y];
+            }
+        }
+
+        public void SetValueToCell(int index, int value)
+        {
+            SetValueToCell(GetXCord(index), GetYCord(index), value);
+        }
+
+        public void SetValueToCell(int x, int y, int value)
+        {
+            Cells[x, y].Value = value;
+        }
+
+        #endregion
+
+        #region Privatte Methods
+
+        private ICell[,] CreateGrid(int dimention)
+        {
+            var cells = new Cell.Cell[dimention, dimention];
             for (int i = 0; i < dimention; i++)
             {
                 for (int j = 0; j < dimention; j++)
                 {
-                    cells[i, j] = new EmptyCell(i, j);
+                    cells[i, j] = new Cell.Cell(i, j);
                 }
             }
             return cells;
         }
 
-        public override AbstractCell[,] Cells
+        private int GetXCord(int index)
         {
-            get;
-            set;
+            return index / Size;
         }
+
+        private int GetYCord(int index)
+        {
+            return index % Size;
+        }
+
+        #endregion
+
     }
 }

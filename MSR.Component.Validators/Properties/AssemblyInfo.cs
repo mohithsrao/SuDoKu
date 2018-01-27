@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MSR.Components.Grid")]
+[assembly: AssemblyTitle("MSR.Component.Validators")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MSR.Components.Grid")]
+[assembly: AssemblyProduct("MSR.Component.Validators")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("da162bc9-9dbf-4056-ad63-db4a2f940f76")]
+[assembly: Guid("305592eb-e3ab-4822-bb8d-84cfb0d27bc8")]
 
 // Version information for an assembly consists of the following four values:
 //
