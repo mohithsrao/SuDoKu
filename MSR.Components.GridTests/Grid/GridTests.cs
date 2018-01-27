@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace MSR.Components.Grid.Grid.Tests
+namespace MSR.Components.Tests
 {
     [TestClass()]
     public class GridTests
@@ -15,7 +15,7 @@ namespace MSR.Components.Grid.Grid.Tests
             //Arrange
             var cellLength = Math.Pow(size, 2);
             //Act
-            var grid = new Grid(size);
+            var grid = new Components.Grid(size);
 
             //Assert
             Assert.AreEqual(cellLength, grid.Cells.Length);

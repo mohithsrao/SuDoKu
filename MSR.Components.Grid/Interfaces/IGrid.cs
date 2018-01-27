@@ -1,7 +1,6 @@
-﻿using MSR.Components.Grid.Cell;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace MSR.Components.Grid.Grid
+namespace MSR.Components.Interface
 {
     public interface IGrid
     {

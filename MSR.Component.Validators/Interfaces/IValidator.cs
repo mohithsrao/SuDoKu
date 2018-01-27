@@ -1,5 +1,4 @@
-﻿using MSR.Components.Grid.Cell;
-using MSR.Components.Grid.Grid;
+﻿using MSR.Components.Interface;
 using System.Collections.Generic;
 
 namespace MSR.Component.Validators

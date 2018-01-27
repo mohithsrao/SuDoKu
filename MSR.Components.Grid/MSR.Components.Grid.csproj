@@ -76,7 +76,6 @@
     <Compile Include="Interfaces\IGrid.cs" />
     <Compile Include="Interfaces\ICell.cs" />
     <Compile Include="Grid\Grid.cs" />
-    <Compile Include="Grid\SuDoKuGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

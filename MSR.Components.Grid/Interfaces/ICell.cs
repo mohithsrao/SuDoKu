@@ -1,4 +1,4 @@
-﻿namespace MSR.Components.Grid.Cell
+﻿namespace MSR.Components.Interface
 {
     public interface ICell
     {

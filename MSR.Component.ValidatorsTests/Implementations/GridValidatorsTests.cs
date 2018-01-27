@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MSR.Components.Grid.Cell;
-using MSR.Components.Grid.Grid;
+using MSR.Components.Interface;
 using System.Linq;
 
 namespace MSR.Component.Validators.Tests
@@ -14,7 +13,7 @@ namespace MSR.Component.Validators.Tests
         [DataRow(3)]
         public void ValidateGridTest(int size)
         {
-            var grid = new Grid(size);
+            var grid = new Components.Grid(size);
 
             var valueCount = 1;
             foreach (var cell in grid.Cells)
@@ -34,7 +33,7 @@ namespace MSR.Component.Validators.Tests
         [DataRow(3)]
         public void ValidateGrid_Negative_Test(int size)
         {
-            var grid = new Grid(size);
+            var grid = new Components.Grid(size);
 
             var valueCount = 1;
             foreach (var cell in grid.Cells)

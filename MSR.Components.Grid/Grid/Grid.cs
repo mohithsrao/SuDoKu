@@ -1,9 +1,8 @@
-﻿using System;
-using MSR.Components.Grid.Cell;
+﻿using MSR.Components.Interface;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MSR.Components.Grid.Grid
+namespace MSR.Components
 {
     public class Grid : IGrid
     {
@@ -80,12 +79,12 @@ namespace MSR.Components.Grid.Grid
 
         private ICell[,] CreateGrid(int dimention)
         {
-            var cells = new Cell.Cell[dimention, dimention];
+            var cells = new Cell[dimention, dimention];
             for (int i = 0; i < dimention; i++)
             {
                 for (int j = 0; j < dimention; j++)
                 {
-                    cells[i, j] = new Cell.Cell(i, j);
+                    cells[i, j] = new Cell(i, j);
                 }
             }
             return cells;
