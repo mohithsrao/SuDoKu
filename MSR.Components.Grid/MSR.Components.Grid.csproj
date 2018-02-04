@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell\Cell.cs" />
+    <Compile Include="Cell\Point.cs" />
     <Compile Include="Grid\Grid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

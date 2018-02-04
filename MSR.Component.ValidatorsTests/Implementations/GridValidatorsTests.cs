@@ -23,7 +23,8 @@ namespace MSR.Component.Validators.Tests
         [DataRow(3)]
         public void ValidateGridTest(int size)
         {
-            var grid = new Components.Grid(size);
+            IPoint point = new Point() { X = 0, Y = 0 };
+            var grid = new Grid(size, point);
 
             var valueCount = 1;
             foreach (var cell in grid.Cells)
@@ -42,7 +43,8 @@ namespace MSR.Component.Validators.Tests
         [DataRow(3)]
         public void ValidateGrid_Negative_Test(int size)
         {
-            var grid = new Components.Grid(size);
+            IPoint point = new Point() { X = 0, Y = 0 };
+            var grid = new Grid(size, point);
 
             var valueCount = 1;
             foreach (var cell in grid.Cells)
@@ -62,12 +64,13 @@ namespace MSR.Component.Validators.Tests
         [DataRow(1, null, 3, 4)]
         public void ConsolidateValidations_negative(int? a, int? b, int? c, int? d)
         {
+            IPoint point = new Point() { X = 0, Y = 0 };
             var resultList = new List<IValidationResult>();
             var cellList = new List<ICell>() {
-                new Cell(0, 0) {Value = a },
-                new Cell(0, 1) {Value = b },
-                new Cell(1, 0) {Value = c },
-                new Cell(1, 1) {Value = d },
+                new Cell(0, 0,point) {Value = a },
+                new Cell(0, 1,point) {Value = b },
+                new Cell(1, 0,point) {Value = c },
+                new Cell(1, 1,point) {Value = d },
             };
 
             resultList.Add(validator.Validate(cellList.Skip(2)));
@@ -85,12 +88,13 @@ namespace MSR.Component.Validators.Tests
         [DataRow(4, 1, 2, 3)]
         public void ConsolidateValidations(int? a, int? b, int? c, int? d)
         {
+            IPoint point = new Point() { X = 0, Y = 0 };
             var resultList = new List<IValidationResult>();
             var cellList = new List<ICell>() {
-                new Cell(0, 0) {Value = a },
-                new Cell(0, 1) {Value = b },
-                new Cell(1, 0) {Value = c },
-                new Cell(1, 1) {Value = d },
+                new Cell(0, 0,point) {Value = a },
+                new Cell(0, 1,point) {Value = b },
+                new Cell(1, 0,point) {Value = c },
+                new Cell(1, 1,point) {Value = d },
             };
 
             resultList.Add(validator.Validate(cellList.Skip(2)));

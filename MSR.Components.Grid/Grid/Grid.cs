@@ -2,7 +2,6 @@
 using MSR.SuDoKu.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 
 namespace MSR.Components
 {
@@ -22,6 +21,7 @@ namespace MSR.Components
 
             set;
         }
+
         public ICell[,] Cells
         {
             get;
@@ -29,22 +29,18 @@ namespace MSR.Components
             set;
         }
 
+        public IPoint Point
+        {
+            get; set;
+        }
+
         #endregion
 
-        public Grid(int dimention)
+        public Grid(int dimention, IPoint point)
         {
             Size = dimention;
-            Cells = CreateGrid(dimention);
-            /*
-            Rows = Cells
-                .Cast<ICell>()
-                .GroupBy(x => x.X_Cord)
-                .Select(x => x.ToArray());
-            Columns = Cells
-                .Cast<ICell>()
-                .GroupBy(x => x.Y_Cord)
-                .Select(x => x.ToArray());
-            */
+            Point = point;
+            Cells = CreateGrid(dimention, Point);
             validator = new GridValidator();
         }
 
@@ -84,12 +80,12 @@ namespace MSR.Components
 
         public IEnumerable<ICell> GetRowAtIndex(int index)
         {
-            return Cells.Cast<ICell>().Where(x => x.X_Cord == index);
+            return Cells.Cast<ICell>().Where(x => x.Point.X == index);
         }
 
         public IEnumerable<ICell> GetColumnAtIndex(int index)
         {
-            return Cells.Cast<ICell>().Where(x => x.Y_Cord == index);
+            return Cells.Cast<ICell>().Where(x => x.Point.Y == index);
         }
 
         public IValidationResult ValidateGrid()
@@ -101,14 +97,14 @@ namespace MSR.Components
 
         #region Private Methods
 
-        private ICell[,] CreateGrid(int dimention)
+        private ICell[,] CreateGrid(int dimention, IPoint point)
         {
             var cells = new Cell[dimention, dimention];
             for (int i = 0; i < dimention; i++)
             {
                 for (int j = 0; j < dimention; j++)
                 {
-                    cells[i, j] = new Cell(i, j);
+                    cells[i, j] = new Cell(i, j, point);
                 }
             }
             return cells;

@@ -1,31 +1,32 @@
 ﻿
+using System;
 using MSR.SuDoKu.Interfaces;
 
 namespace MSR.Components
 {
     public class Cell : ICell
     {
-        public Cell(int x, int y)
+        public Cell(int x, int y, IPoint parentPoint)
         {
-            X_Cord = x;
-            Y_Cord = y;
+            Point = new Point() { X = x, Y = y };
+            ParentPoint = parentPoint;
+        }
+
+        public IPoint ParentPoint
+        {
+            get;
+
+            set;
+        }
+
+        public IPoint Point
+        {
+            get;
+
+            set;
         }
 
         public int? Value
-        {
-            get;
-
-            set;
-        }
-
-        public int X_Cord
-        {
-            get;
-
-            set;
-        }
-
-        public int Y_Cord
         {
             get;
 

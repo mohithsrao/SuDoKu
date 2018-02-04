@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSR.SuDoKu.Interfaces;
 using System;
-using System.Collections.Generic;
 
 namespace MSR.Components.Tests
 {
@@ -16,8 +15,9 @@ namespace MSR.Components.Tests
         {
             //Arrange
             var cellLength = Math.Pow(size, 2);
+            IPoint point = new Point() { X = 0, Y = 0 };
             //Act
-            var grid = new Components.Grid(size);
+            var grid = new Grid(size, point);
 
             //Assert
             Assert.AreEqual(cellLength, grid.Cells.Length);
@@ -40,7 +40,8 @@ namespace MSR.Components.Tests
         [DataRow(3, 2, 2, 13)]
         public void SetGridValueTest(int size, int x, int y, int value)
         {
-            var grid = new Grid(size);
+            IPoint point = new Point() { X = 0, Y = 0 };
+            var grid = new Grid(size, point);
 
             grid.SetValueToCell(x, y, value);
 
@@ -64,7 +65,8 @@ namespace MSR.Components.Tests
         [DataRow(3, 8, 13)]
         public void SetGridValueByIndexerTest(int size, int index, int value)
         {
-            var grid = new Grid(size);
+            IPoint point = new Point() { X = 0, Y = 0 };
+            var grid = new Grid(size, point);
 
             grid.SetValueToCell(index, value);
 
@@ -74,7 +76,8 @@ namespace MSR.Components.Tests
         [TestMethod()]
         public void ValidateGrid()
         {
-            var grid = new Grid(2);
+            IPoint point = new Point() { X = 0, Y = 0 };
+            var grid = new Grid(2, point);
             grid.SetValueToCell(0, 1);
             grid.SetValueToCell(1, 2);
             grid.SetValueToCell(2, 3);
@@ -89,7 +92,8 @@ namespace MSR.Components.Tests
         [TestMethod()]
         public void ValidateGrid_negative()
         {
-            var grid = new Grid(2);
+            IPoint point = new Point() { X = 0, Y = 0 };
+            var grid = new Grid(2, point);
             grid.SetValueToCell(0, 1);
             grid.SetValueToCell(1, 1);
             grid.SetValueToCell(2, 3);

@@ -1,13 +1,15 @@
 ﻿
 using MSR.Component.Validators;
+using MSR.Components;
 using MSR.SuDoKu.Interfaces;
+using MSR.SuDoKu.Interfaces.Grid;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MSR.SuDoKu.Grid
 {
-    public class SuDoKuGrid
+    public class SuDoKuGrid : ISuDoKuGrid
     {
         #region Private Variables
 
@@ -17,13 +19,11 @@ namespace MSR.SuDoKu.Grid
 
         #region Public Properties
 
-        public Components.Grid[,] Grid { get; set; }
+        public IGrid[,] Grid { get; set; }
 
         public int GridSize
         {
             get;
-
-            set;
         }
 
         #endregion
@@ -45,13 +45,18 @@ namespace MSR.SuDoKu.Grid
             {
                 for (int j = 0; j < gridSize; j++)
                 {
-                    grid[i, j] = new Components.Grid(gridSize);
+                    IPoint point = new Point() { X = i, Y = j };
+                    grid[i, j] = new Components.Grid(gridSize, point);
                 }
             }
             return grid;
         }
 
-        private IEnumerable<ICell> GetRowAtIndex(int index)
+        #endregion
+
+        #region Public Methods
+
+        public IEnumerable<ICell> GetRowAtIndex(int index)
         {
             var gridLocation = index / GridSize;
             var rowLocation = index % GridSize;
@@ -64,7 +69,7 @@ namespace MSR.SuDoKu.Grid
             return rowList;
         }
 
-        private IEnumerable<ICell> GetColumnAtIndex(int index)
+        public IEnumerable<ICell> GetColumnAtIndex(int index)
         {
             var gridLocation = index / GridSize;
             var rowLocation = index % GridSize;
@@ -76,10 +81,6 @@ namespace MSR.SuDoKu.Grid
             }
             return rowList;
         }
-
-        #endregion
-
-        #region Public Methods
 
         public IValidationResult ValidateRow(int index)
         {
@@ -105,7 +106,7 @@ namespace MSR.SuDoKu.Grid
             }
 
             // Validate Grid and Row Data
-            for (int i = 0; i < Math.Pow(GridSize, GridSize); i++)
+            for (int i = 0; i < GridSize * GridSize; i++)
             {
                 resultList.Add(ValidateRow(i));
                 resultList.Add(ValidateColumn(i));
