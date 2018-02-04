@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MSR.SuDoKu.GridTests")]
+[assembly: AssemblyTitle("MSR.SuDoKu.Interfaces")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MSR.SuDoKu.GridTests")]
+[assembly: AssemblyProduct("MSR.SuDoKu.Interfaces")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1a377994-b352-4ac4-8669-405a291ddd07")]
+[assembly: Guid("a8aadc02-5dc0-4239-ab16-70cee0f3ba60")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,4 +1,6 @@
-﻿namespace MSR.Component.Validators
+﻿using MSR.SuDoKu.Interfaces;
+
+namespace MSR.Component.Validators
 {
     internal class ValidationResult : IValidationResult
     {

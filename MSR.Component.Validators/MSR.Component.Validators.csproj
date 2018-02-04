@@ -41,15 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementations\GridValidator.cs" />
-    <Compile Include="Interfaces\IValidationResult.cs" />
-    <Compile Include="Interfaces\IValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Implementations\ValidationResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MSR.Components.Grid\MSR.Components.Grid.csproj">
-      <Project>{DA162BC9-9DBF-4056-AD63-DB4A2F940F76}</Project>
-      <Name>MSR.Components.Grid</Name>
+    <ProjectReference Include="..\MSR.SuDoKu.Interfaces\MSR.SuDoKu.Interfaces.csproj">
+      <Project>{A8AADC02-5DC0-4239-AB16-70CEE0F3BA60}</Project>
+      <Name>MSR.SuDoKu.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
-﻿using MSR.Components.Interface;
+﻿
+using MSR.SuDoKu.Interfaces;
 
 namespace MSR.Components
 {

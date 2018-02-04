@@ -70,6 +70,10 @@
       <Project>{DA162BC9-9DBF-4056-AD63-DB4A2F940F76}</Project>
       <Name>MSR.Components.Grid</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MSR.SuDoKu.Interfaces\MSR.SuDoKu.Interfaces.csproj">
+      <Project>{a8aadc02-5dc0-4239-ab16-70cee0f3ba60}</Project>
+      <Name>MSR.SuDoKu.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

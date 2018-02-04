@@ -1,4 +1,4 @@
-﻿namespace MSR.Component.Validators
+﻿namespace MSR.SuDoKu.Interfaces
 {
     public interface IValidationResult
     {

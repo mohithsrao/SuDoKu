@@ -1,11 +1,20 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
-using MSR.Components.Interface;
+using MSR.SuDoKu.Interfaces;
+using System;
 
 namespace MSR.Component.Validators
 {
     public class GridValidator : IValidator
     {
+        public IValidationResult ConsolidateValidations(IEnumerable<IValidationResult> resultList)
+        {
+            var hasRepetingValue = resultList.Any(x => x.HasRepetingValue) ? true : false;
+            var isFilled = resultList.All(x => x.IsFilled) ? true : false;
+
+            return new ValidationResult(hasRepetingValue, isFilled);
+        }
+
         public IValidationResult Validate(IEnumerable<ICell> cells)
         {
             var isFilled = false;

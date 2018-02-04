@@ -1,4 +1,4 @@
-﻿namespace MSR.Components.Interface
+﻿namespace MSR.SuDoKu.Interfaces
 {
     public interface ICell
     {

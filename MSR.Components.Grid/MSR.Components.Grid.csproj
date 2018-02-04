@@ -73,13 +73,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell\Cell.cs" />
-    <Compile Include="Interfaces\IGrid.cs" />
-    <Compile Include="Interfaces\ICell.cs" />
     <Compile Include="Grid\Grid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSR.Component.Validators\MSR.Component.Validators.csproj">
+      <Project>{305592eb-e3ab-4822-bb8d-84cfb0d27bc8}</Project>
+      <Name>MSR.Component.Validators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSR.SuDoKu.Interfaces\MSR.SuDoKu.Interfaces.csproj">
+      <Project>{A8AADC02-5DC0-4239-AB16-70CEE0F3BA60}</Project>
+      <Name>MSR.SuDoKu.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

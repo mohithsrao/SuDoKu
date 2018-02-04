@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MSR.SuDoKu.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace MSR.Components.Tests
 {
@@ -67,6 +69,36 @@ namespace MSR.Components.Tests
             grid.SetValueToCell(index, value);
 
             Assert.AreEqual(value, grid[index].Value);
+        }
+
+        [TestMethod()]
+        public void ValidateGrid()
+        {
+            var grid = new Grid(2);
+            grid.SetValueToCell(0, 1);
+            grid.SetValueToCell(1, 2);
+            grid.SetValueToCell(2, 3);
+            grid.SetValueToCell(3, 4);
+
+            Assert.IsTrue(grid.ValidateRow(0).IsValid);
+            Assert.IsTrue(grid.ValidateRow(1).IsValid);
+            Assert.IsTrue(grid.ValidateColumn(0).IsValid);
+            Assert.IsTrue(grid.ValidateColumn(1).IsValid);
+        }
+
+        [TestMethod()]
+        public void ValidateGrid_negative()
+        {
+            var grid = new Grid(2);
+            grid.SetValueToCell(0, 1);
+            grid.SetValueToCell(1, 1);
+            grid.SetValueToCell(2, 3);
+            grid.SetValueToCell(3, 1);
+
+            Assert.IsFalse(grid.ValidateRow(0).IsValid);
+            Assert.IsTrue(grid.ValidateRow(1).IsValid);
+            Assert.IsTrue(grid.ValidateColumn(0).IsValid);
+            Assert.IsFalse(grid.ValidateColumn(1).IsValid);
         }
     }
 }
