@@ -77,12 +77,53 @@ namespace MSR.SuDoKu.Solver
                 possibleCellValuesList.Add(cell, possibleValueList);
             }
 
-            // Select one cell and populate value
-            if (possibleCellValuesList.Any(x => x.Value.Count() == 1))
+            // Select cell which has only one entry available
+            foreach (var grid in Grid.Grid)
             {
-                var cellValue = possibleCellValuesList.Where(x => x.Value.Count() == 1).First();
-                cellValue.Key.Value = cellValue.Value.First();
+                var gridCells = grid.Cells.Cast<ICell>()
+                                    .Where(y => !y.Value.HasValue);
+                var list = possibleCellValuesList.Join(gridCells,
+                   s => s.Key,
+                   q => q,
+                   (s, q) => s);
+
+                if (list.Any(x => x.Value.Count() == 1))
+                {
+                    var cellData = list
+                                    .Where(x => x.Value.Count() == 1)
+                                    .Select(x => x.Key)
+                                    .FirstOrDefault();
+                    cellData.Value = list
+                                        .FirstOrDefault(x => x.Value.Count() == 1)
+                                        .Value
+                                        .FirstOrDefault();
+                    break;
+                }
+
+                var uniqueKeyList = list
+                                .SelectMany(x => x.Value)
+                                .GroupBy(x => x)
+                                .Where(x => x.Count() == 1)
+                                .Select(x => x.Key);
+
+                if (uniqueKeyList.Count() > 0)
+                {
+                    var cellData = list.Where(x => x.Value.Contains(uniqueKeyList.First())).FirstOrDefault();
+                    cellData.Key.Value = uniqueKeyList.FirstOrDefault();
+                    break;
+                }
             }
+
+            //if (possibleCellValuesList.Any(x => x.Value.Count() == 1))
+            //{
+            //    var cellValue = possibleCellValuesList.Where(x => x.Value.Count() == 1).First();
+            //    cellValue.Key.Value = cellValue.Value.First();
+            //}
+            //else if (possibleCellValuesList.Any(x => x.Value.Count() == 2))
+            //{
+            //    var cellValue = possibleCellValuesList.Where(x => x.Value.Count() == 2).First();
+            //    cellValue.Key.Value = cellValue.Value.First();
+            //}
 
             var cellListRemaining = GetEmptyCellList();
 

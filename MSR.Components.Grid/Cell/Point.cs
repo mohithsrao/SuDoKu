@@ -22,5 +22,10 @@ namespace MSR.Components
 
             set;
         }
+
+        public override string ToString()
+        {
+            return $"({X},{Y})";
+        }
     }
 }

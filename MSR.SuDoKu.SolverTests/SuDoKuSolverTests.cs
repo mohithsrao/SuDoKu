@@ -80,32 +80,33 @@ namespace MSR.SuDoKu.Solver.Tests
             ISuDoKuGrid sgrid = null;
             /*
              
-             5  9   *      7   *   *     *   *   *
-             1  *   *      *   *   *     *   6   *
-             *  *   *      9   *   6     5   2   *
-             
-             *  9   *      *   *   5     *   4   *
-             *  4   3      *   *   *     6   *   *
-             2  *   *      *   *   *     3   8   9
-             
-             *   *   *     4   *   7     *   *   *
-             4   *   *     3   *   *     *   9   *
-             *   *   *     8   1   *     *   *   4
+             *  *   *       *   *   *       *   *   2
+             *  *   *       *   *   *       9   4   *
+             *  *   3       *   *   *       *   *   5
+               
+             *  9   2       3   *   5       *   7   4
+             8  4   *       *   *   *       *   *   *
+             *  6   7       *   9   8       *   *   *
+                                        
+             *  *   *       7   *   6       *   *   *
+             *  *   *       9   *   *       *   2   *
+             4  *   8       5   *   *       3   6   *
 
              */
             var list = new List<int?>() {
 
-               5,9,null,7,null,null,null,null,null,
-               1,null,null,null,null,null,null,6,null,
-               null,null,null,9,null,6,5,2,null,
+                null,null,null, null,null,null, null,null,2,
+                null,null,null, null,null,null, 9,4,null,
+                null,null,3, null,null,null, null,null,5,
 
-               null,9,null,null,null,5,null,4,null,
-               null,4,3,null,null,null,6,null,null,
-               2,null,null,null,null,null,3,8,9,
+                null,9,2, 3,null,5, null,7,4,
+                8,4,null, null,null,null, null,null,null,
+                null,6,7, null,9,8, null,null,null,
 
-               null,null,null,4,null,7,null,null,null,
-               4,null,null,3,null,null,null,9,null,
-               null,null,null,8,1,null,null,null,4
+                null,null,null, 7,null,6, null,null,null,
+                null,null,null, 9,null,null, null,2,null,
+                4,null,8, 5,null,null, 3,6,null
+
             };
 
             Assert.IsTrue(solver.Solve(3, out sgrid, list));

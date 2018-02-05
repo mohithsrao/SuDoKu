@@ -32,5 +32,10 @@ namespace MSR.Components
 
             set;
         }
+
+        public override string ToString()
+        {
+            return $"{Point} parent {ParentPoint} Value : {(Value.HasValue ? Value.Value.ToString() : "null")}";
+        }
     }
 }
